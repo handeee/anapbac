@@ -1,0 +1,10 @@
+
+services:
+  web:
+    build: ./anaproje
+    container_name: frontend   
+    ports:
+      - "3000:3000"
+    # networks:
+    #   - project-network
+

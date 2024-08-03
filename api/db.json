@@ -1,0 +1,66 @@
+{
+    "Filmler": [
+      {
+        "id":1,
+        "Gender":1,
+        "productName": "Bilim Kurgu",
+        "categoryId": 2,
+        
+        "quantityPerUnit": "48 - 6 oz jars",
+        "unitPrice": "24",
+         "src":"https://cdn.webtekno.com/media/cache/content_detail_v2/article/90252/netflix-bilim-kurgu-filmleri-1586958125.jpg"
+      },
+      {
+        "id": 2,
+        "Gender":2,
+        "productName": "Bilim Kurgu2",
+        "quantityPerUnit": "48 - 6 oz jars",
+        "categoryId": 3,
+        "unitPrice": "24",
+         "src":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
+         
+      },
+      {
+        "id": 3,
+        "Gender":1,
+        "productName": "Bilim Kurgu2",
+        "quantityPerUnit": "48 - 6 oz jars",
+        "categoryId": 2,
+        "unitPrice": "24",
+         "src":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
+         
+      },
+      {
+        "id": 4,
+        "Gender":1,
+        "productName": "Bilim Kurgu2",
+        "quantityPerUnit": "48 - 6 oz jars",
+        "categoryId": 2,
+        "unitPrice": "24",
+         "src":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
+         
+      },
+      {
+        "id": 5,
+        "Gender":2,
+        "productName": "Bilim Kurgu2",
+        "quantityPerUnit": "48 - 6 oz jars",
+        "categoryId": 2,
+        "unitPrice": "24",
+         "src":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
+         
+      },
+      {
+        "id": 6,
+        "Gender":1,
+        "productName": "Bilim Kurgu2",
+        "quantityPerUnit": "48 - 6 oz jars",
+        "categoryId": 1,
+        "unitPrice": "24",
+         "src":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
+         
+      }
+    ]
+  
+  
+  }
