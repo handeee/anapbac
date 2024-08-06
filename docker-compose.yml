@@ -4,7 +4,7 @@ services:
     build: ./anaproje
     container_name: frontend   
     ports:
-      - "3000:3000"
+      - "8000:8000"
     # networks:
     #   - project-network
 

@@ -9,7 +9,7 @@ const Search = ({tumcinsler,onFilteredDataChange}) => {
   const navigate = useNavigate();
   useEffect(() => {
     const results = tumcinsler.filter(item =>
-      item.productName.toLowerCase().includes(searchitem.toLowerCase())
+      item.title.toLowerCase().includes(searchitem.toLowerCase())
     );
     setAllData(results);
     onFilteredDataChange(results);
@@ -20,7 +20,7 @@ const Search = ({tumcinsler,onFilteredDataChange}) => {
  const handleKeyDown = (event) => {
   if (event.key === 'Enter') {
     const results = tumcinsler.filter(item =>
-      item.productName.toLowerCase().includes(searchitem.toLowerCase())
+      item.title.toLowerCase().includes(searchitem.toLowerCase())
     );
     setAllData(results);
     

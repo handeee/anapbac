@@ -42,7 +42,7 @@ const ImagesSearch = ({ giveSearch }) => {
           <div className="card-content">
             <div className="media">
               <div className="media-content">
-                <p className="title is-4" style={styles.pet}>{item.productName}</p>
+                <p className="title is-4" style={styles.pet}>{item.title}</p>
               </div>
             </div>
             <div className="content">

@@ -3,48 +3,88 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 const Images = ({ gender, selectedgender }) => {
-  const [k, setk] = useState(selectedgender); // Initialize k based on gender
+  //  const [k, setk] = useState(selectedgender); // Initialize k based on gender
+  //const [k, setk] = useState(selectedgender); // Initialize k based on gender
   const navigate = useNavigate();
+  const [shoeList, setShoeList] = useState([]);
   useEffect(() => {
-    console.log("Gender:", gender);
-  console.log("m:", selectedgender);
-      setk(selectedgender);
-   
- 
+    console.log("Current gender:", gender); // Bu satırı kontrol edin
+
+//getResimler();
+    console.log(gender)
+  // ayakkabı teke düştü
+  const filteredShoes =selectedgender;
+  let tempList = [];
+  filteredShoes.forEach((shoe) => {
+    let flag = true;
+    for (let i = 0; i < tempList.length; i++) {
+      if (shoe.title === tempList[i].title) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      tempList.push(shoe);
+    }
+  });
+  setShoeList(tempList);
+     
   }, [gender,selectedgender]);
 
-  useEffect(() => {
-    console.log("Updated k:", k);
-    console.log("Is k an array?:", Array.isArray(k));
-  }, [k])
+  
+
+
+//   const getResimler = async () => {
+//     await fetch("http://10.0.0.201:8000/filter/",{
+//       method:'GET',
+//       headers:{'Content-Type':'application/json'},
+//     })
+//      .then((response) => response.json())
+//      .then((data) => {
+//        console.log(data);
+//        setk(data);
+      
+//        console.log(k)
+//        console.log(gender)
+  
+//      })
+//      .catch((error) => {
+//        console.error("Veri alınamadı", error);
+//      });
+//  };
   const styles = {
     imgContainer: {
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "center",
-      gap: "2px", 
-      marginTop: "20px", 
-      
+      gap: "20px", // Aradaki boşluğu artırın
+      marginTop: "20px",
     },
     img: {
-      width: "100%", // Make sure the image fills the container
-      height: "300px",
-      objectFit: "cover", // Ensure image covers the area properly
+      width: "100%", // Görüntü genişliği
+      height: "200px", // Sabit bir yükseklik verin
+       objectFit: "cover", // Görüntüyü kapsar
+     
     },
-   
     card: {
-      flex: "1 1 calc(20% - 20px)", // Adjusts the card to fit 4 items per row with gap
-      boxSizing: 'border-box', // Ensures padding and border are included in width
-      marginBottom: '20px', // Space below each card
-      marginLeft:'68px',
+      width:"1300px",
+      flex: "1 1 calc(25% - 20px)", // Kartın genişliği: %25 ve aradaki boşluk
+      boxSizing: "border-box", // İç kenar boşluklarını ve sınırları kapsar
+      marginBottom: "20px",
+      padding: "10px",
+      border: "1px solid #ddd",
+      borderRadius: "8px", // Kart köşelerini yuvarlayın
+      maxWidth: "calc(25% - 20px)", // Maksimum genişlik
+      backgroundColor: "#fff", // Arka plan rengi
+      transition: "transform 0.3s ease", // Hover efekti için geçiş
     },
     cardHover: {
-      transform: "scale(1.05)", // Slightly zoom in on hover
+      transform: "scale(1.05)", // Hover efekti
     },
-    pet:{
-      marginTop:'25px',
-    }
+    pet: {
+      marginTop: "15px",
+    },
   };
+  
   const detayagit = (image) => {
     navigate('/detail', { state: { image } });
   };
@@ -54,32 +94,31 @@ const Images = ({ gender, selectedgender }) => {
       {/* <h1>Selected CI: {ci}</h1> yazıyor k degeri yok */}
     
       <div style={styles.imgContainer}>
-        {k.map((src) => (
-          <div class="card" style={styles.card}
+        {shoeList.map((src) => (
+          <div className="card" style={styles.card}
           onMouseEnter={(e) => e.currentTarget.style.transform = styles.cardHover.transform}
           onMouseLeave={(e) => e.currentTarget.style.transform = "none"}
           >
-            <div class="card-image" >
-              <figure class="image is-4by3">
+            <div className="card-image" >
+              <figure className="image is-4by3">
                 <img 
                   key={src.id}
-                  src={src.src}
+                  src={src.image}
                   alt={`image-${src.id}`}
                   style={styles.img}
-                  onClick={() => detayagit(src.src)} 
+                  onClick={() => detayagit(src)} 
                 />
               </figure>
             </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-4" style={styles.pet}>{src.productName}</p>
+            <div className="card-content">
+              <div className="media">
+                <div className="media-content">
+                  <p className="title is-4" style={styles.pet}>{src.title}</p>
                 </div>
               </div>
 
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris.
+              <div className="content">
+               <p>{src.description}</p>
               </div>
             </div>
           </div>

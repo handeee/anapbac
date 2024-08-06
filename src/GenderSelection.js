@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const GenderSelection = ({ gender,onGenderSelect}) => {
   const [selectedGender, setSelectedGender] = useState('');
-
+  const navigate = useNavigate();
   useEffect(() => {
     setSelectedGender(gender);
+    ;
   }, [gender]);
 
   const handleButtonClick = (gender) => {
     setSelectedGender(gender); 
     onGenderSelect(gender)
-
+  navigate('/genderpath')
   };
 
+  
   const styles = {
     container: {
       display: 'flex',
@@ -46,9 +48,9 @@ const GenderSelection = ({ gender,onGenderSelect}) => {
           className="buton-style"
           style={{
             ...styles.button,
-            ...(selectedGender === 'female' ? styles.selectedButton : {}),
+            ...(selectedGender === 'F' ? styles.selectedButton : {}),
           }}
-          onClick={() => handleButtonClick('female')}
+          onClick={() => handleButtonClick('F')}
         >
           KADIN
         </button>
@@ -57,9 +59,9 @@ const GenderSelection = ({ gender,onGenderSelect}) => {
           className="buton-style"
           style={{
             ...styles.button,
-            ...(selectedGender === 'male' ? styles.selectedButton : {}),
+            ...(selectedGender === 'M' ? styles.selectedButton : {}),
           }}
-          onClick={() => handleButtonClick('male')}
+          onClick={() => handleButtonClick('M')}
         >
           ERKEK
         </button>

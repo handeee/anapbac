@@ -1,73 +1,98 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { useState,useEffect } from "react";
 
-const ImagesDetail = () => {
-    const location = useLocation();
-    const { image } = location.state || {};
-    const styles = {
-        imgContainer: {
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          gap: "2px", 
-          marginTop: "20px", 
-          
-        },
-        img: {
-          width: "100%", // Make sure the image fills the container
-          height: "300px",
-          objectFit: "cover", // Ensure image covers the area properly
-        },
-       
-        card: {
-          flex: "1 1 calc(20% - 20px)", // Adjusts the card to fit 4 items per row with gap
-          boxSizing: 'border-box', // Ensures padding and border are included in width
-          marginBottom: '20px', // Space below each card
-          marginLeft:'68px',
-        },
-        cardHover: {
-          transform: "scale(1.05)", // Slightly zoom in on hover
-        },
-        pet:{
-          marginTop:'25px',
-        }
-      };
+const ImagesDetail = ({veriat,sepeteEkle}) => {
+  const location = useLocation();
+  const { image } = location.state || {};
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [availableSizes, setAvailableSizes] = useState([]);
+  const styles = {
+    imgContainer: {
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      gap: "2px",
+      marginTop: "20px",
+    },
+    img: {
+      width:"500px", // Ensure the image fills the container
+      height: "500px",
+      objectFit: "cover", // Ensure image covers the area properly
+     
+    },
+    
+    pet: {
+      marginTop: "25px",
+    },
+  };
+  const numaradegal = (size) => {
+    setSelectedSize(size); // Seçilen numarayı state'e kaydediyoruz
+  };
+  const handleSepeteEkle = () => {
+    if (!selectedSize) {
+      alert("Lütfen bir numara seçiniz.");
+      return;
+    }
+
+    const item = {
+      src: image.src,
+      alt: image.alt,
+      price: image.price,
+      title: image.title,
+      size: selectedSize,
+      description: image.description,
+    };
+
+    sepeteEkle(item);
+  };
+  
+  useEffect(() => {
+    const sizes = veriat
+      .filter((shoe) => shoe.title === image.title)
+      .map((shoe) => shoe.size);
+    setAvailableSizes(sizes);
+  }, [veriat, image]);
+
   return (
     <div>
-       <div style={styles.imgContainer}>
-       
-          <div class="card" style={styles.card}
-          onMouseEnter={(e) => e.currentTarget.style.transform = styles.cardHover.transform}
-          onMouseLeave={(e) => e.currentTarget.style.transform = "none"}
+      <div style={styles.imgContainer}>
+        <img
+          key={image.id}
+          src={image.image}
+          alt={`image-${image.id}`}
+          style={styles.img}
+        />
+
+        <p style={styles.pet}>{image.title}</p>
+
+        <div class="content">
+         {image.description}
+        </div>
+        <div>
+        {availableSizes.map((size, index) => (
+            <button
+              key={index}
+              className={`size-button ${selectedSize === size ? 'selected' : ''}`}
+              onClick={() => numaradegal(size)}
+            >
+              {size} 
+            </button>
+          ))}
+        </div>
+        <div className="price-container">
+          <button
+            className="button is-small"
+            style={{ width: "100%", marginTop: "10px" }}
+            onClick={handleSepeteEkle}
           >
-            <div class="card-image" >
-              <figure class="image is-4by3">
-                <img 
-                  key={image.id}
-                  src={image.src}
-                  alt={`image-${image.id}`}
-                  style={styles.img}
-                />
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-4" style={styles.pet}>{image.productName}</p>
-                </div>
-              </div>
-
-              <div class="content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris.
-              </div>
-            </div>
-          </div>
-       
+            Sepete Ekle
+          </button>
+        </div>
       </div>
+      <p>fnfgjgfhfghgf</p>
     </div>
-    
-  )
-}
+  );
+};
 
-export default ImagesDetail
+export default ImagesDetail;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { NavLink } from "react-router-dom";
 const styles = {
     toplu: {
@@ -9,14 +9,39 @@ const styles = {
       color: "blue", // Seçili kategori için renk
     },
   };
-const CategoryIcon = ({selectedCategory}) => {
-    const category = [
-        "spor ayakkabı",
-        "topuklu ayakkabı",
-        "sandalet",
-        "terlik",
-        "bot",
-      ];
+
+const CategoryIcon = ({selectedCategory,selectedgender}) => {
+  // const fonk = () => {
+  //   return selectedgender.map(item => item.category);
+
+  // };
+  const [categories, setCategories] = useState([]);
+
+  const getResimler = async () => {
+    try {
+      const response = await fetch('http://10.0.0.201:8000/category/');
+      const data = await response.json();
+      console.log(data.value);
+      const categoryValues = data.value.map((item) => item.value);
+      setCategories(categoryValues);
+    } catch (error) {
+      console.error('Veri alınamadı', error);
+    }
+  };
+
+  useEffect(() => {
+    getResimler();
+  }, []);
+
+// const categories=fonk();
+    // const category = [
+    
+    //     "spor",
+    //     "topuklu ayakkabı",
+    //     "sandalet",
+    //     "terlik",
+    //     "bot",
+    //   ];
     const handleCategoryClick = (category) => {
         selectedCategory(category);
       };
@@ -30,12 +55,11 @@ const CategoryIcon = ({selectedCategory}) => {
       >
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-          {category.map((cat, index) => (
+          {categories.map((cat, index) => (
               <NavLink
               to="/categories"
                 key={index}
                 className={`navbar-item ${selectedCategory === cat ? 'is-selected' : ''}`}
-                 
                 onClick={() => handleCategoryClick(cat)}
               >
                 {cat}

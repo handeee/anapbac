@@ -8,17 +8,19 @@ const EnterPage = ({ onImageClick,erkek,kadin }) => {
   const handleClick = (gender) => {
     onImageClick(gender);
     navigate('/genderpath');
+    
   };
+
   
   return (
     <div className='container'>
       <div className='anaresim'>
         <div className='image-container'>
-          <img src={kadin} alt="Kadın" onClick={() => handleClick('female')} />
+          <img src={kadin} alt="Kadın" onClick={() => handleClick('F')} />
           <p>KADIN</p>
         </div>
         <div className='image-container'>
-          <img src={erkek} alt="Erkek" onClick={() => handleClick('male')} />
+          <img src={erkek} alt="Erkek" onClick={() => handleClick('M')} />
           <p>ERKEK</p>
         </div>
       </div>
