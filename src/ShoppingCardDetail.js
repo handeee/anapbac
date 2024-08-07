@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import silme from './resimler/silbuton.png';
 
 
-const ShoppingCardDetail = ({ cartItems = [],setCartItems,Fiyat}) => {
+const ShoppingCardDetail = ({ cartItems = [],setCartItems,Fiyat,onToplamUrunSayisiChange}) => {
   // Her ürün için bir adet sayısı nesnesi oluşturuyoruz
   const [adetler, setAdetler] = useState(() =>
     cartItems.reduce((acc, item, index) => ({ ...acc, [index]: 1 }), {})
@@ -39,7 +39,7 @@ const ShoppingCardDetail = ({ cartItems = [],setCartItems,Fiyat}) => {
   const [fiyat, setFiyat] = useState("");
 
   useEffect(() => {
-    console.log('dssfdfddgf: ',cartItems);
+
     let total = 0;
     cartItems.forEach(item => {
       total += parseInt(item.price) * adetler[cartItems.indexOf(item)];
@@ -47,19 +47,24 @@ const ShoppingCardDetail = ({ cartItems = [],setCartItems,Fiyat}) => {
     setFiyat(total);
    // getResimler();
    Fiyat(total);
+   const toplamUrunSayisi = Object.values(adetler).reduce((total, adet) => total + adet, 0);
+   onToplamUrunSayisiChange(toplamUrunSayisi);
+
+  
   }, [cartItems, adetler]);
 
   // useEffect(() => {
    
   // }, []);
-
-  const ondelete=(id)=>{
-    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+  const ondelete = (id) => {
+    if (window.confirm('Bu ürünü çıkarmak istediğinize emin misiniz?')) {
+      setCartItems(prevItems => prevItems.filter(item => item.id !== id));
     }
+  };
     
   return (
     <div>
-     
+   
       {cartItems.length === 0 ? (
         <p>No items in the cart</p>
       ) : (

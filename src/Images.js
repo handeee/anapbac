@@ -8,7 +8,7 @@ const Images = ({ gender, selectedgender }) => {
   const navigate = useNavigate();
   const [shoeList, setShoeList] = useState([]);
   useEffect(() => {
-    console.log("Current gender:", gender); // Bu satırı kontrol edin
+    
 
 //getResimler();
  

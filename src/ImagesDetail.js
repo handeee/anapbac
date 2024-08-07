@@ -13,12 +13,14 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
       flexWrap: "wrap",
       justifyContent: "center",
       gap: "2px",
-      marginTop: "20px",
+      marginTop: "1px",
+      width:"600px"/* sağa götürüyo*/
     },
     img: {
-      width:"500px", // Ensure the image fills the container
-      height: "500px",
+      width:"700px", // Ensure the image fills the container
+      height: "600px",
       objectFit: "cover", // Ensure image covers the area properly
+      
      
     },
     
@@ -58,17 +60,19 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
 
   return (
     <div  className="detail-container">
-      <div style={styles.imgContainer} >
+
+      <div  style={styles.imgContainer} >
         <img
           key={image.id}
           src={image.image}
           alt={`image-${image.id}`}
-          style={styles.img}
+          /*style={styles.img}*/
           className="detayresim"
         />
+              </div>
         <div className="detail-content">
         <div className="content">
-          <p className="imgtitle" style={styles.pet}>{image.title}</p>
+          <p className="imgtitle" /*style={styles.pet}*/>{image.title}</p>
           <br />
           {image.description}
         </div>
@@ -78,8 +82,6 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
         </div>
         {/* <div class="content">
         <p className="imgtitle" style={styles.pet}>{image.title}</p>
-
-       
          {image.description}
         </div> */}
         <div className="size-container">
@@ -103,7 +105,7 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
             Sepete Ekle
           </button>
         </div>
-      </div>
+
      
     </div>
   );

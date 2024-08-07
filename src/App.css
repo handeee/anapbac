@@ -141,7 +141,7 @@ display:flex;
 
 .right-section {
   display: flex;
-  gap: 10px;
+  gap: 1px;
   margin-right:95px;
   margin-bottom: 25px;
 }
@@ -245,7 +245,8 @@ display:flex;
   margin-bottom: 20px;
  flex-wrap:wrap;
  justify-content: flex-start;
-  margin-top:330px;
+  margin-top:270px;
+ 
  
 }
 .size-container button:hover {
@@ -268,13 +269,10 @@ display:flex;
  
 .detail-container {
   display: flex; /* Flexbox kullanımı */
-  justify-content: space-between; /* Bileşenler arasında boşluk bırakma */
+  /* justify-content: space-between;  */
+  flex-direction:row;
 }
 
-.detail-content {
-  flex: 1; /* Detay içeriği genişler */
-  margin-right: 10px; /* Sağ boşluk (isteğe bağlı) */
-}
 
 .sepet-container {
   width: 300px; /* Sepet genişliği (isteğe bağlı) */
@@ -286,7 +284,11 @@ display:flex;
    height: 500px;
 
 }
-
+.detayresim2{ /*images resminin detay kısmı*/
+margin-left:20px;
+width:600px;
+height:00px;
+}
 
 .detail-container {
   display: flex;
@@ -304,10 +306,10 @@ display:flex;
 .detail-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  margin-left:300px;
-  margin-top:60px;
+   justify-content: space-between;
+ /*flex: 1;*/
+  margin-left:200px;
+  margin-top:0px;
 }
 
 .content {
@@ -321,10 +323,10 @@ display:flex;
    margin-top: 40px;
 }
 .price-container{
-  margin-top:100px;
-  width:300px;
+  margin-top:270px;
+  width:250px;
   height:160px;
-  margin-right:60px;
+  margin-right:80px;
 }
 .silme{
   margin-left:500px;
@@ -391,16 +393,142 @@ margin-left:20px;
 
 
 
+/*giris uye kısmı */
+.container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center;
+  background-color: pink;
+  width: 350px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  margin-top: 200px;
+  border-radius:9px; */
 
+}
+      input{
+          width: 450px;
+      }
+      .gir{
+      display:grid;
+      grid-template-columns:0.1fr 2fr;
+      row-gap:1px;
+      margin-bottom: 20px;
+      margin-left:170px;
+     } 
+     .dis{
+      display: flex;
+      flex-direction: column;
+      
+     }
+     
+     button{
+      margin-left:150px;
+      color:gray
+   
+     } 
 
+     .uye{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+     }
+     .uye img{
+      width:650px;
+      height:700px;
+     }
+   .baslik{
+    display: flex;
+     margin-left:1px;
+    margin-top:40px;
+    margin-bottom:50px;
+    gap:1px;
+margin-right:0px;
+    
+   }
+   .baslik button{
+    width:290px;
+    
+    margin-top:120px;
+    height:60px;
+    border:none;
+    background-color:white;
+   margin-right:0,1px;
+    font-size: 20px;
+    cursor: pointer; /* Butona tıklama göstergesi */
+   }
+   .baslik hr{
+    width:320px;
+    margin-left:90px;
+  
+   }
+   .gir input{
+   height:50px;
+   border:none;
+   border-bottom:1px solid #000;
+   outline: none; 
+   width:525px;
+   } 
+   .kayitbut button{
+    margin-left: 500px;
+    width:200px;
+    height:40px;
+    background-color:black;
+    color: aliceblue;
+   }
+   .yanyanainput {
+    display: flex;
+    gap: 10px; /* Opsiyonel, input'lar arasına boşluk ekler */
+  }
+  
+  .yanyanainput input {
+    flex: 1; /* Her iki input'un eşit genişlikte olmasını sağlar */
+    box-sizing: border-box; /* Padding ve border'ları genişliğe dahil eder */
+   width:260px;
+  }
+  .baslik .active-button {
+    
+    color:black; /* Beyaz yazı rengi */
+  }
+  
+  .baslik .active-hr {
+    border-color: #333; /* Koyu renk `hr` */
+  }
+  .password-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-password {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+    font-size: 14px;
+    color: #007bff;
+  }
+  
+  .toggle-password:hover {
+    text-decoration: underline;
+  }
+  
 
+.kuladi{
+  margin-top:20px;
+  margin-right:5px;
+}
+/*ürün sayısnı logoda gösterme*/
+.sepeturun{
+margin-right:0.1px;
+margin-top:25px;
+border-radius:20px;
+background-color:rgba(255, 0, 0, 0.93);
+border: 1px solid black;
+width:20px;
+height:20px;
+}
 
-
-
-
-
-
-
+  
 
 
 

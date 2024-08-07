@@ -45,13 +45,14 @@ const Register= () => {
           <div className="dropdown-menu" id="dropdown-menu" role="menu">
             <div className="dropdown-content">
              
-              <Link to="/uye">
+              <Link to="/giris">
               <button>Giriş yap</button>
               </Link>
-             
-              <p className="dropdown-item">Üye değil misin? <button style={{fontWeight:'bold',textDecoration: 'underline'}}>Üye ol</button></p>
             
-              
+           
+              <p className="dropdown-item">Üye değil misin? <Link to="/uye"> <button style={{fontWeight:'bold',textDecoration: 'underline'}}>Üye ol</button></Link></p>
+            
+          
             </div>
           </div>
         )}

@@ -1,81 +1,20 @@
 {
-    "Filmler": [
-      {
-        "id":1,
-        "gender":1,
-        "title": "Bilim Kurgu",
-        "categoryId": 2,
-        "stock":3,
-        "size":"36",
-        
-        "quantityPerUnit": "48 - 6 oz jars",
-        "unitPrice": "24",
-         "image":"https://cdn.webtekno.com/media/cache/content_detail_v2/article/90252/netflix-bilim-kurgu-filmleri-1586958125.jpg"
-      },
-      {
-        "id":1,
-        "gender":1,
-        "title": "Bilim Kurgu",
-        "categoryId": 2,
-        "stock":3,
-        "size":"37",
-        
-        "quantityPerUnit": "48 - 6 oz jars",
-        "unitPrice": "24",
-         "image":"https://cdn.webtekno.com/media/cache/content_detail_v2/article/90252/netflix-bilim-kurgu-filmleri-1586958125.jpg"
-      },
-      {
-        "id": 2,
-        "gender":2,
-        "title": "ger",
-        "quantityPerUnit": "48 - 6 oz jars",
-        "categoryId": 3,
-        "unitPrice": "24",
-        
-         "image":"https://static.ticimax.cloud/12157/uploads/urunresimleri/buyuk/kadin-keten-spor-ayakkabi-siyah-beyaz-32-956.jpg"
-         
-      },
-      {
-        "id": 3,
-        "gender":1,
-        "title": "fant",
-        "quantityPerUnit": "48 - 6 oz jars",
-        "categoryId": 2,
-        "unitPrice": "24",
-         "image":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
-         
-      },
-      {
-        "id": 4,
-        "gender":1,
-        "title": "c",
-        "quantityPerUnit": "48 - 6 oz jars",
-        "categoryId": 2,
-        "unitPrice": "24",
-         "image":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
-         
-      },
-      {
-        "id": 5,
-        "gender":2,
-        "title": "d",
-        "quantityPerUnit": "48 - 6 oz jars",
-        "categoryId": 2,
-        "unitPrice": "24",
-         "image":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
-         
-      },
-      {
-        "id": 6,
-        "gender":1,
-        "title": "e",
-        "quantityPerUnit": "48 - 6 oz jars",
-        "categoryId": 1,
-        "unitPrice": "24",
-         "image":"https://cdn1.ntv.com.tr/gorsel/cBHMJEbqhEe02l7i0Gb8GQ.jpg?width=1000&mode=crop&scale=both"
-         
-      }
-    ]
-  
-  
-  }
+  "Kullanicilar": [
+    {
+      "id": "d515",
+      "name": "hande",
+      "password": "asdas",
+      "username": "handeee",
+      "Email": "hande@gamil.com",
+      "surname": "öz"
+    },
+    {
+      "id": "8317",
+      "name": "feyza",
+      "password": "1234",
+      "username": "feyzaa",
+      "Email": "feyzadurur@gmail.com",
+      "surname": "durur"
+    }
+  ]
+}
