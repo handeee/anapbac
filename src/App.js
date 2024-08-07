@@ -18,7 +18,7 @@ import Images from './Images';
 import ImagesSearch from './ImagesSearch';
 import CarouselDetail from './CarouselDetail';
 import ImagesDetail from './ImagesDetail';
-
+import SummerOrder from './SummerOrder';
 
 function App() {
   const [kadinresmi, setKadin] = useState("");
@@ -72,6 +72,11 @@ function App() {
     setCartItems((prevItems) => [...prevItems, item]);
     navigate('/sepet');
   };
+  // urun silme
+  const removeItemFromCart = (id) => {
+    setCartItems(cartItems.filter(item => item.id !== id));
+  };
+
   const filtermale = ayakkabidata.length > 0 ? ayakkabidata.filter((ayakkabi) => ayakkabi.gender === 'M') : [];
   const filterfemale = ayakkabidata.length > 0 ? ayakkabidata.filter((ayakkabi) => ayakkabi.gender === 'F') : [];
 
@@ -89,6 +94,11 @@ function App() {
   const [indirim, setindirim] = useState([]);
   const indirimliurun = (ind) => {
     setindirim(ind);
+  }
+  const [siparissozet, setSiparisozet] = useState("");
+  //siparisözet
+  const siparisozet=(totalal)=>{
+ setSiparisozet(totalal)
   }
 
   return (
@@ -146,7 +156,10 @@ function App() {
           </div>
         } />
         <Route path="/uye" element={<RegisterPage />} />
-        <Route path="/sepet" element={<ShoppingCardDetail cartItems={cartItems}/>} />
+        <Route path="/sepet" element={<div className="sipariscontainer">
+      <ShoppingCardDetail cartItems={cartItems} setCartItems={removeItemFromCart} Fiyat={siparisozet} />
+      <SummerOrder Fiyat={siparissozet} />
+    </div>} />
         <Route path="/aramasonucu" element={<ImagesSearch giveSearch={giveSearch} />} />
         <Route path="/carouseldetay" element={<CarouselDetail resim={indirim} />} />
         <Route path="/detail" element={<ImagesDetail veriat={ayakkabidata} sepeteEkle={sepeteEkle}/>}/>

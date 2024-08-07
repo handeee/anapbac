@@ -1,16 +1,31 @@
-import React, { useState } from "react";
-import hc from "./resimler/hc.jpg";
-import bilkur2 from "./resimler/bilkur2.jpg";
-import geri from "./resimler/ger.jpg";
+import React, { useEffect, useState } from "react";
+import karoerkek from "./resimler/karoerkek.jpg";
+import kar2erk from "./resimler/kar2erk.png";
+import karokadin from "./resimler/karokadin.jpg";
+
 import { useNavigate } from 'react-router-dom';
 
 const Carousel = ({indirimal}) => {
-  const [res, setres] = useState([hc,bilkur2,geri]);
-  const [resStore,setResStore]=useState([hc,bilkur2,geri]);
+  const [res, setres] = useState([karoerkek,kar2erk,karokadin]);
+  const [resStore,setResStore]=useState([karoerkek,kar2erk,karokadin]);
   const ilerigeri=["<",">"];
   const [counter,setCounter]=useState(0);
   const navigate = useNavigate();
-
+//   const getResimler = async () => {
+//     await fetch("http://10.0.0.201:8000/bestseller/")
+//      .then((response) => response.json())
+//      .then((data) => {
+//        console.log(data.shoes);
+     
+  
+//      })
+//      .catch((error) => {
+//        console.error("Veri alınamadı", error);
+//      });
+//  };
+//  useEffect(()=>{
+//   getResimler();
+//  })
   const styles = {
     res: {
       borderRadius: "0", // Removes the rounded corner
@@ -22,7 +37,7 @@ const Carousel = ({indirimal}) => {
   };
   const images = [
     {
-      src: bilkur2,
+      src: kar2erk,
       alt: 'Bilkur',
       price: '799,99 TL',
       title: 'John Smith',
@@ -30,7 +45,7 @@ const Carousel = ({indirimal}) => {
       description: 'Lorem '
     },
     {
-      src: geri,
+      src:karokadin,
       alt: 'Erkek',
       price: '799,99 TL',
       title: 'John Smith',

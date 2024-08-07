@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const ImagesSearch = ({ giveSearch }) => {
   const styles = {
@@ -10,20 +11,34 @@ const ImagesSearch = ({ giveSearch }) => {
       marginTop: "20px",
       width: '93%',
     },
-    img: {
-      width: "100%",
-      height: "300px",
-      objectFit: "cover",
-    },
+  
     card: {
-      flex: "1 1 calc(20% - 20px)",
-      boxSizing: 'border-box',
-      marginBottom: '20px',
-      marginLeft: '68px',
+      width:"1300px",
+      flex: "1 1 calc(25% - 20px)", // Kartın genişliği: %25 ve aradaki boşluk
+      boxSizing: "border-box", // İç kenar boşluklarını ve sınırları kapsar
+      marginBottom: "20px",
+      padding: "10px",
+      border: "1px solid #ddd",
+      borderRadius: "8px", // Kart köşelerini yuvarlayın
+      maxWidth: "calc(25% - 20px)", // Maksimum genişlik
+      backgroundColor: "#fff", // Arka plan rengi
+      transition: "transform 0.3s ease", // Hover efekti için geçiş
+    },
+    img: {
+      width: "100%", // Görüntü genişliği
+      height: "300px", // Sabit bir yükseklik verin
+     
+    },
+    cardHover: {
+      transform: "scale(1.05)", // Hover efekti
     },
     pet: {
       marginTop: '25px',
     }
+  };
+  const navigate = useNavigate();
+  const detayagit = (image) => {
+    navigate('/detail', { state: { image } });
   };
 
   return (
@@ -36,6 +51,7 @@ const ImagesSearch = ({ giveSearch }) => {
                 src={item.src}
                 alt={`image-${item.id}`}
                 style={styles.img}
+                onClick={() => detayagit(item)}
               />
             </figure>
           </div>

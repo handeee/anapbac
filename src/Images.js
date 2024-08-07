@@ -11,7 +11,7 @@ const Images = ({ gender, selectedgender }) => {
     console.log("Current gender:", gender); // Bu satırı kontrol edin
 
 //getResimler();
-    console.log(gender)
+ 
   // ayakkabı teke düştü
   const filteredShoes =selectedgender;
   let tempList = [];
@@ -57,13 +57,13 @@ const Images = ({ gender, selectedgender }) => {
       flexWrap: "wrap",
       justifyContent: "center",
       gap: "20px", // Aradaki boşluğu artırın
-      marginTop: "20px",
+      marginTop: "60px",
+    
     },
     img: {
       width: "100%", // Görüntü genişliği
-      height: "200px", // Sabit bir yükseklik verin
-       objectFit: "cover", // Görüntüyü kapsar
-     
+      height: "300px", // Sabit bir yükseklik verin
+
     },
     card: {
       width:"1300px",
@@ -81,7 +81,7 @@ const Images = ({ gender, selectedgender }) => {
       transform: "scale(1.05)", // Hover efekti
     },
     pet: {
-      marginTop: "15px",
+      marginTop: "25px",
     },
   };
   
@@ -119,6 +119,9 @@ const Images = ({ gender, selectedgender }) => {
 
               <div className="content">
                <p>{src.description}</p>
+              </div>
+              <div className="content">
+               <p>{src.price+"TL"}</p>
               </div>
             </div>
           </div>

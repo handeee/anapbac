@@ -29,29 +29,42 @@ const styles = {
     transform: "scale(1.05)", // Hover efekti
   },
   pet: {
-    marginTop: "15px",
+    marginTop: "25px",
   },
 };
 const Categories = ({ secilid, gender, m }) => {
   // Seçili ürünler durumunu tutan state
-  const [secilicins, setSecilicins] = useState([m]);
+  //const [secilicins, setSecilicins] = useState([m]);
   const navigate = useNavigate();
+  const [shoeList, setShoeList] = useState([]);
 
-  useEffect (() => {
-    if (Array.isArray(m)) {
-      setSecilicins(m);
-        console.log(m);
-        getcategory();
+  // useEffect (() => {
+  //   if (Array.isArray(m)) {
+  //     setSecilicins(m);
+  
+  //       //getcategory();
    
-    } else {
-      console.error('m is not an array:', m);
-    }
+  //   } else {
+  //     console.error('m is not an array:', m);
+  //   }
    
    
-  }, [gender, m]); // `gender` veya `m` değiştiğinde çalışır
+  // }, [gender, m]); // `gender` veya `m` değiştiğinde çalışır
 
+
+  useEffect(() => {
+    // Gender değiştiğinde ve `m` ile birlikte tekilleştirme işlemini yapar
+    const filteredShoes = m;
+    let tempList = [];
+    filteredShoes.forEach((shoe) => {
+      if (!tempList.some(item => item.title === shoe.title)) {
+        tempList.push(shoe);
+      }
+    });
+    setShoeList(tempList);
+  }, [gender, m]);
   // Kategoriye göre filtreleme
-  const filterveri =m.filter((item) => item.category === secilid);
+  const filterveri =shoeList.filter((item) => item.category === secilid);
 
   // Konsol çıktıları ile veri kontrolü
   console.log('secilid:', secilid);
@@ -63,29 +76,29 @@ const Categories = ({ secilid, gender, m }) => {
   const detayagit = (image) => {
     navigate('/detail', { state: { image } });
   };
-  const getcategory = async () => {
-    try {
-      const response = await fetch('http://10.0.0.201:8000/shoescategory/?category=Terlik');
-      const data = await response.json();
+//   const getcategory = async () => {
+//     try {
+//       const response = await fetch('http://10.0.0.201:8000/shoescategory/?category=Terlik');
+//       const data = await response.json();
       
-           console.log(data);
+//            console.log(data);
           
-          // if (data.success) {
-          //   console.log('Shoe added successfully:', data);
-          // }
-    }
+//           // if (data.success) {
+//           //   console.log('Shoe added successfully:', data);
+//           // }
+//     }
        
      
-    catch (error) {
-      console.error('Veri alınamadı', error);
-    }
- };
+//     catch (error) {
+//       console.error('Veri alınamadı', error);
+//     }
+//  };
   return (
     <div>
-      <h2>Seçilen Kategori: {secilid}</h2>
+     
 
       <div style={styles.imgContainer}>
-      <h3>{gender ? (gender === 'F' ? 'Kadın Ürünleri' : 'Erkek Ürünleri') : 'Tüm Ürünler'}:</h3>
+      {/* <h3>{gender ? (gender === 'F' ? 'Kadın Ürünleri' : 'Erkek Ürünleri') : 'Tüm Ürünler'}:</h3> */}
         {filterveri.map((item,index) => (
           <div className="card" style={styles.card}
           onMouseEnter={(e) => e.currentTarget.style.transform = styles.cardHover.transform}
@@ -94,7 +107,7 @@ const Categories = ({ secilid, gender, m }) => {
             <div className="card-image" >
               <figure className="image is-4by3">
               <li key={index}>
-                <img src={item.image} alt={item.title} style={{ width: '100px', height: '100px' }} onClick={()=>detayagit(item)}  />
+                <img src={item.image} alt={item.title} style={{ width: '300px', height: '300px' }} onClick={()=>detayagit(item)}  />
                 <p>{item.title}</p>
               </li>
               </figure>

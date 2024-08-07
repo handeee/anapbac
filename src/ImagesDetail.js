@@ -25,6 +25,7 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
     pet: {
       marginTop: "25px",
     },
+    
   };
   const numaradegal = (size) => {
     setSelectedSize(size); // Seçilen numarayı state'e kaydediyoruz
@@ -54,22 +55,34 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
     setAvailableSizes(sizes);
   }, [veriat, image]);
 
+
   return (
-    <div>
-      <div style={styles.imgContainer}>
+    <div  className="detail-container">
+      <div style={styles.imgContainer} >
         <img
           key={image.id}
           src={image.image}
           alt={`image-${image.id}`}
           style={styles.img}
+          className="detayresim"
         />
-
-        <p style={styles.pet}>{image.title}</p>
-
-        <div class="content">
-         {image.description}
+        <div className="detail-content">
+        <div className="content">
+          <p className="imgtitle" style={styles.pet}>{image.title}</p>
+          <br />
+          {image.description}
         </div>
-        <div>
+        <div className="fyt">
+               <p>{image.price+"TL"}</p>
+              </div>
+        </div>
+        {/* <div class="content">
+        <p className="imgtitle" style={styles.pet}>{image.title}</p>
+
+       
+         {image.description}
+        </div> */}
+        <div className="size-container">
         {availableSizes.map((size, index) => (
             <button
               key={index}
@@ -80,6 +93,7 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
             </button>
           ))}
         </div>
+       
         <div className="price-container">
           <button
             className="button is-small"
@@ -90,7 +104,7 @@ const ImagesDetail = ({veriat,sepeteEkle}) => {
           </button>
         </div>
       </div>
-      <p>fnfgjgfhfghgf</p>
+     
     </div>
   );
 };
